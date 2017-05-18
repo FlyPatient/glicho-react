@@ -8,12 +8,14 @@ import { history } from './history/history';
 import { App } from './containers/App';
 import { Home } from './containers/Home';
 import { BookBox } from './pages/BookBox';
+import { PostBox } from './pages/PostBox';
 
 const renderApp = (state) => {
    render(
         <Router {...state}> 
             <Route path="/" index={Home} component={App}> 
-                <Route path="books/:categoryId/:name" component={BookBox} />
+                <Route path="books/:categoryId/:name" component={BookBox} />  
+                <Route path="addBook" component={PostBox} />                
             </Route> 
         </Router>,
         document.getElementById('app')

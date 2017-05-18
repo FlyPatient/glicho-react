@@ -2,7 +2,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin'); 
 
 const GLOBALS = {
-    'process.env.ENDPOINT' : JSON.stringify('http://resourceserver.herokuapp.com/api/bookstore/')
+    'process.env.ENDPOINT' : JSON.stringify('http://localhost:3050/api/bookstore/')
 }
 
 module.exports = {
@@ -14,10 +14,15 @@ module.exports = {
     },
     module: {
         loaders: [{
-            test: /\.jsx?$/,
-            exclude: /node_modules/,
-            loader: 'babel-loader'
-        }]
+                    test: /\.jsx?$/,
+                    exclude: /node_modules/,
+                    loader: 'babel-loader'
+                    },
+                    { 
+                        test: /\.css$/, 
+                        loader: "style-loader!css-loader" 
+                    }
+            ]
     },
     plugins: [
         new webpack.DefinePlugin(GLOBALS),
