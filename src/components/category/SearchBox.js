@@ -1,7 +1,5 @@
 import React from 'react';
-import Filter from  'bad-words';
-
-const filter = new Filter();
+import PropTypes from 'prop-types';
 
 class SearchBox extends React.Component {
     constructor(props) {
@@ -34,7 +32,9 @@ class SearchBox extends React.Component {
     }
 }
 
-SearchBox.propTypes = {};
+SearchBox.propTypes = {
+    handleSearchText : PropTypes.func.isRequired 
+};
 
 export { SearchBox }; 
 
